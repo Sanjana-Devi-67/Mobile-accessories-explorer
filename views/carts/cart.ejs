@@ -1,0 +1,114 @@
+<% layout("/layouts/boilerplate") %>
+<style>
+  /* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* Cart container */
+.cart-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+}
+
+/* Cart header */
+h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+/* Cart list */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+/* Cart item */
+li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+/* Product image */
+li img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 1rem;
+}
+
+/* Product details */
+li p {
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Remove button */
+li button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+li button:hover {
+    background-color: #c82333;
+}
+
+/* Total price */
+p.total {
+    text-align: right;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 1.5rem;
+}
+
+/* Empty cart message */
+p.empty-cart {
+    text-align: center;
+    font-size: 1rem;
+    color: #666;
+    margin-top: 2rem;
+}
+
+</style>
+<% if (cart.length > 0) { %>
+  <h2>Your Cart</h2>
+  <ul>
+      <% cart.forEach(item => { %>
+          <li>
+              <img src="<%= item.product.image.url %>" alt="<%= item.product.title %>" width="100">
+              <p>Product: <%= item.product.title %></p>
+              <p>Price: ₹<%= item.product.price %></p>
+              <p>Quantity: <%= item.quantity %></p>
+              <form action="/cart/<%= item.product._id %>?_method=DELETE" method="POST">
+                  <button type="submit">Delete</button>
+              </form>
+          </li>
+      <% }) %>
+  </ul>
+  <p>Total: ₹<%= cart.reduce((sum, item) => sum + item.product.price * item.quantity, 0) %></p>
+<% } else { %>
+  <p>Your cart is empty.</p>
+<% } %> 

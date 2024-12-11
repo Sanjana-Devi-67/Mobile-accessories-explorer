@@ -1,0 +1,97 @@
+<% layout("/layouts/boilerplate") %> 
+
+<script>
+    const mapToken = "<%=process.env.MAP_API_TOKEN%>";
+</script>
+<style>
+    .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #f9f9f9;
+}
+
+/* Product Section */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background-color: #fdf5e6; /* Pastel cream */
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.product-name {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #5d5c61;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .menu {
+        margin: 15px 0;
+    }
+}
+</style>
+
+
+<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3 ">
+    <% for (let product of allProducts) { %>
+        <a href="/products/<%= product._id %>" class="product-link">
+            <div class="card col product-card">
+                <img src="<%= product.image.url %>" class="card-img-top" alt="product_image" style="height: 20rem;">
+                <div class="card-img-overlay"></div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <b><%= product.title %></b><br>
+                        ₹<%= product.price.toLocaleString("en-IN") %>
+                    </p>
+                </div>
+            </div>
+        </a>
+    <% } %>
+</div>
+<div class="col-6 offset-3 mb-3">
+  <h3 style="color: #8b0f0f;">Location</h3>
+  <div id="map"></div>
+</div>
+
+<script src="/js/map.js"></script>
+
+

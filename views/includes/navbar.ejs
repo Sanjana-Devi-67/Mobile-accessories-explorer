@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/products"><i class="fa-solid fa-mobile-screen-button"></i></a>
+      <button 
+          class="navbar-toggler" 
+          type="button" 
+          data-bs-toggle="collapse" 
+          data-bs-target="#navbarNavAltMarkup" 
+       >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="navv">
+        <h3 style="color:#8b0f0f;">Galaxy Moiles</h3>
+      </div>
+      <div class="navbar-nav">
+        <a class="nav-link" href="/products">All Products</a>
+     </div>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      
+        <div class="navbar-nav ms-auto">
+       
+         
+          <a class="nav-link" href="/products/new">Sell Product</a>
+          <a class="nav-link" href="/cart"><i class="fa-solid fa-cart-shopping"></i> &nbsp; Cart</a>
+          <% if(!currUser) {%>
+            <a class="nav-link" href="/signup">Sign up</a>
+            <a class="nav-link" href="/login">Login</a>
+          <%} %>
+          <% if(currUser) {%>
+            <a class="nav-link" href="/logout">Logout</a>
+          <%} %>
+        </div>
+      </div>
+    </div>
+  </nav>
