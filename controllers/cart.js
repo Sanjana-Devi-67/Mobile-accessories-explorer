@@ -7,20 +7,19 @@ module.exports.add=async (req,res)=> {
     const userId = req.user._id;
     const productId = req.params.productId;
 
-    // Find or create a cart for the user
+  
     let cart = await Cart.findOne({ user: userId });
 
     if (!cart) {
         cart = new Cart({ user: userId, items: [] });
     }
 
-    // Check if the product already exists in the cart
     const existingItem = cart.items.find(item => item.product.equals(productId));
 
     if (existingItem) {
-        existingItem.quantity += 1; // Increment the quantity if it exists
+        existingItem.quantity += 1; 
     } else {
-        cart.items.push({ product: productId, quantity: 1 }); // Add a new product
+        cart.items.push({ product: productId, quantity: 1 }); 
     }
 
     await cart.save();
@@ -37,20 +36,16 @@ module.exports.view=async (req,res)=>{
 
 module.exports.delete=async (req,res)=>{
     const { productId } = req.params;
-    const userId = req.user._id; // Assuming `req.user` contains authenticated user data
-
-    // Fetch or initialize the user's cart
+    const userId = req.user._id; 
     let cart = await Cart.findOne({ userId });
     if (!cart) {
         cart = new Cart({ userId, items: [] });
     }
-
-    // Check if the product already exists in the cart
     const existingItem = cart.items.find(item => item.product.toString() === productId);
     if (existingItem) {
-        existingItem.quantity += 1; // Increment quantity if already in cart
+        existingItem.quantity += 1;
     } else {
-        cart.items.push({ product: productId, quantity: 1 }); // Add new product
+        cart.items.push({ product: productId, quantity: 1 }); 
     }
 
     await cart.save();
