@@ -1,1 +1,60 @@
 # Mobile-accessories-web-application
+
+## About the Project
+The **Mobile Accessories Web Application** is a full-stack e-commerce platform where users can browse, search, and purchase mobile accessories. It includes robust user authentication and authorization using **Passport.js**, ensuring secure access to features like adding products to the cart and checking out.
+
+---
+
+## Features
+- **User Authentication & Authorization**: 
+  - Users can register, log in, and log out securely.
+  - Role-based access (e.g., admin and customer).
+  - Secure authentication implemented with **Passport.js**.
+
+- **Product Management**:
+  - Display a list of mobile accessories.
+  - Admins can add, update, or delete products.
+
+- **Add to Cart**:
+  - Users can add products to their cart and manage quantities.
+
+- **Responsive Design**:
+  - User-friendly interface optimized for desktop and mobile devices.
+
+---
+
+## Technologies Used
+### Frontend:
+- **React.js**
+- **Redux** for state management
+- **Bootstrap** or **Material-UI** for styling
+
+### Backend:
+- **Node.js** and **Express.js**
+
+### Database:
+- **MongoDB** (NoSQL database)
+
+### Authentication:
+- **Passport.js**
+- **JSON Web Tokens (JWT)** for session handling
+
+### Other Tools:
+- **Axios** for API calls
+- **Mongoose** for database interaction
+
+---
+
+## Setup and Installation
+
+### Prerequisites
+Ensure you have the following installed:
+- **Node.js** (v14 or later)
+- **MongoDB** (locally or through a service like MongoDB Atlas)
+- **Git**
+
+### Installation Steps
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/mobile-accessories-web-application.git
+   cd mobile-accessories-web-application
