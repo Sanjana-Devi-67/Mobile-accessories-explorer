@@ -45,16 +45,4 @@ The **Mobile Accessories Web Application** is a full-stack e-commerce platform w
 
 ---
 
-## Setup and Installation
 
-### Prerequisites
-Ensure you have the following installed:
-- **Node.js** (v14 or later)
-- **MongoDB** (locally or through a service like MongoDB Atlas)
-- **Git**
-
-### Installation Steps
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/mobile-accessories-web-application.git
-   cd mobile-accessories-web-application
