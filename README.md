@@ -1,7 +1,7 @@
 # Mobile-accessories-web-application
 
 ## About the Project
-The **Mobile Accessories Web Application** is a full-stack e-commerce platform where users can browse, search, and purchase mobile accessories. It includes robust user authentication and authorization using **Passport.js**, ensuring secure access to features like adding products to the cart and checking out.
+The **Mobile Accessories Web Application** is a full-stack e-commerce platform where users can view mobile accessories. It includes robust user authentication and authorization using **Passport.js**, ensuring secure access to features like adding products to the cart .
 
 ---
 
