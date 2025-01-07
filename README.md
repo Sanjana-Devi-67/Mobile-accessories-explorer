@@ -25,8 +25,7 @@ The **Mobile Accessories Web Application** is a full-stack e-commerce platform w
 
 ## Technologies Used
 ### Frontend:
-- **React.js**
-- **Redux** for state management
+- **HTML,CSS and JavaScript**
 - **Bootstrap** or **Material-UI** for styling
 
 ### Backend:
