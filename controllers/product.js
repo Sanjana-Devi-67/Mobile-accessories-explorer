@@ -1,7 +1,5 @@
 const Product=require("../models/product");
 
-
-
 module.exports.index=async (req,res)=>{
     const allProducts=await Product.find({});
     res.render("products/index.ejs",{allProducts});

@@ -10,7 +10,7 @@ module.exports.isLoggedIn = (req, res, next) => {
         req.flash("error", "You must be logged in!!");
         return res.redirect("/login");
     }
-    next();
+    next(); 
 };
 
 module.exports.saveRedirectUrl = (req, res, next) => {
