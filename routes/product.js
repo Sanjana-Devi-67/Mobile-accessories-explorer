@@ -4,15 +4,11 @@ const wrapAsync = require("../utils/wrapAsync.js");
 const Product = require("../models/product.js");
 const { isLoggedIn, isOwner, validateProduct } = require("../middleware.js");
 const productController = require("../controllers/product.js");
-const multer = require('multer');
-const { storage } = require("../cloudconfig.js");
-// const upload = multer({ dest: 'uploads/' })
-const upload = multer({ storage });
+
 
 router.route("/")
     .get(wrapAsync(productController.index))
     .post(isLoggedIn,
-        upload.single("product[image]"),
         validateProduct,
         wrapAsync(productController.createProduct)
     );
