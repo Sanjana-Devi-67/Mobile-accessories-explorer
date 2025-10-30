@@ -18,7 +18,7 @@ router.get("/new", isLoggedIn,productController.renderNewForm);
 
 router.route("/:id")
     .get(wrapAsync(productController.showProducts))
-    .put(isLoggedIn, isOwner, validateProduct, wrapAsync(productController.updateProduct))
+    // .put(isLoggedIn, isOwner, validateProduct, wrapAsync(productController.updateProduct))
     // .delete(isLoggedIn, isOwner, wrapAsync(productController.destroyProduct));
 
 // edit route
