@@ -36,35 +36,35 @@ module.exports.createProduct = async (req, res, next) => {
     res.redirect("/products");
 }
 
-module.exports.renderEditForm = async (req, res) => {
-    let { id } = req.params;
-    const product = await Product.findById(id);
-    if (!product) {
-        req.flash("error", "Product does not exist!");
-        return res.redirect("/products");
-    }
-    let originalImageURL = product.image.url;
-    originalImageURL = originalImageURL.replace("/upload", "/upload/w_250");
-    res.render("products/edit.ejs", { product, originalImageURL });
-}
+// module.exports.renderEditForm = async (req, res) => {
+//     let { id } = req.params;
+//     const product = await Product.findById(id);
+//     if (!product) {
+//         req.flash("error", "Product does not exist!");
+//         return res.redirect("/products");
+//     }
+//     let originalImageURL = product.image.url;
+//     originalImageURL = originalImageURL.replace("/upload", "/upload/w_250");
+//     res.render("products/edit.ejs", { product, originalImageURL });
+// }
 
-module.exports.updateProduct = async (req, res) => {
-    let { id } = req.params;
-    let product = await Product.findByIdAndUpdate(id, { ...req.body.product });
-    if (typeof req.file !== "undefined") {
-        let url = req.file.path;
-        let filename = req.file.filename;
-        product.image = { url, filename };
-        await product.save();
-    }
-    req.flash("success", "Product Updated!!");
-    res.redirect(`/products/${id}`);
-}
+// module.exports.updateProduct = async (req, res) => {
+//     let { id } = req.params;
+//     let product = await Product.findByIdAndUpdate(id, { ...req.body.product });
+//     if (typeof req.file !== "undefined") {
+//         let url = req.file.path;
+//         let filename = req.file.filename;
+//         product.image = { url, filename };
+//         await product.save();
+//     }
+//     req.flash("success", "Product Updated!!");
+//     res.redirect(`/products/${id}`);
+// }
 
-module.exports.destroyProduct = async (req, res) => {
-    let { id } = req.params;
-    let deletedProduct = await Product.findByIdAndDelete(id);
-    // console.log(deletedProduct);
-    req.flash("success", "Product Deleted!!");
-    res.redirect("/products");
-}
+// module.exports.destroyProduct = async (req, res) => {
+//     let { id } = req.params;
+//     let deletedProduct = await Product.findByIdAndDelete(id);
+//     // console.log(deletedProduct);
+//     req.flash("success", "Product Deleted!!");
+//     res.redirect("/products");
+// }
